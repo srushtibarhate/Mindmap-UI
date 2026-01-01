@@ -1,0 +1,166 @@
+{
+  "id": "root",
+  "title": "Vitamins in Human Body",
+  "summary": "Essential micronutrients required for growth, development, and overall health. Vitamins cannot be synthesized by the body in sufficient amounts and must be obtained through diet.",
+  "metadata": {
+    "Category": "Nutrition Science",
+    "Total Types": "13 Essential Vitamins",
+    "Discovery": "Early 1900s"
+  },
+  "children": [
+    {
+      "id": "classification",
+      "title": "Vitamin Classification",
+      "summary": "Vitamins are classified into two major categories based on their solubility properties: fat-soluble and water-soluble vitamins. This classification affects how they are absorbed, transported, stored, and excreted in the body.",
+      "metadata": {
+        "Basis": "Chemical Solubility",
+        "Main Groups": "2 (Fat & Water Soluble)"
+      },
+      "children": [
+        {
+          "id": "fat",
+          "title": "Fat-Soluble Vitamins",
+          "summary": "Absorbed along with fats in the diet and stored in the body's fatty tissue and liver. Include vitamins A, D, E, and K. Can accumulate in the body and don't need to be consumed daily.",
+          "metadata": {
+            "Storage": "Liver & Fat Tissues",
+            "Absorption": "Requires dietary fat",
+            "Count": "4 vitamins"
+          },
+          "children": [
+            {
+              "id": "A",
+              "title": "Vitamin A (Retinol)",
+              "summary": "Critical for vision, immune function, skin health, and cellular communication. Deficiency can cause night blindness.",
+              "metadata": {
+                "Sources": "Carrots, sweet potatoes, spinach",
+                "Daily Need": "900 mcg (men), 700 mcg (women)",
+                "Function": "Vision, immunity, reproduction"
+              }
+            },
+            {
+              "id": "D",
+              "title": "Vitamin D (Calciferol)",
+              "summary": "Essential for calcium absorption, bone health, immune function, and mood regulation. Can be synthesized by skin when exposed to sunlight.",
+              "metadata": {
+                "Sources": "Sunlight, fatty fish, fortified milk",
+                "Daily Need": "600-800 IU",
+                "Function": "Bone health, calcium absorption"
+              }
+            },
+            {
+              "id": "E",
+              "title": "Vitamin E (Tocopherol)",
+              "summary": "Powerful antioxidant that protects cells from damage, supports immune function, and promotes skin health.",
+              "metadata": {
+                "Sources": "Nuts, seeds, vegetable oils",
+                "Daily Need": "15 mg",
+                "Function": "Antioxidant, cell protection"
+              }
+            },
+            {
+              "id": "K",
+              "title": "Vitamin K (Phylloquinone)",
+              "summary": "Essential for blood clotting and bone metabolism. Helps wounds heal properly.",
+              "metadata": {
+                "Sources": "Leafy greens, broccoli, Brussels sprouts",
+                "Daily Need": "120 mcg (men), 90 mcg (women)",
+                "Function": "Blood clotting, bone health"
+              }
+            }
+          ]
+        },
+        {
+          "id": "water",
+          "title": "Water-Soluble Vitamins",
+          "summary": "Dissolve in water and are not stored in the body. Excess amounts are excreted in urine, so they need to be consumed regularly. Include vitamin C and the B-complex vitamins.",
+          "metadata": {
+            "Storage": "Not stored (except B12)",
+            "Excretion": "Through urine",
+            "Count": "9 vitamins"
+          },
+          "children": [
+            {
+              "id": "C",
+              "title": "Vitamin C (Ascorbic Acid)",
+              "summary": "Powerful antioxidant essential for immune function, collagen synthesis, wound healing, and iron absorption. Humans cannot produce it naturally.",
+              "metadata": {
+                "Sources": "Citrus fruits, strawberries, bell peppers",
+                "Daily Need": "90 mg (men), 75 mg (women)",
+                "Function": "Immunity, antioxidant, collagen"
+              }
+            },
+            {
+              "id": "B",
+              "title": "B-Complex Vitamins",
+              "summary": "Group of 8 vitamins that play vital roles in energy production, brain function, and cell metabolism. Work together to convert food into energy.",
+              "metadata": {
+                "Count": "8 vitamins (B1-B12)",
+                "Primary Role": "Energy metabolism",
+                "Sources": "Whole grains, meat, eggs, legumes"
+              },
+              "children": [
+                {
+                  "id": "B1",
+                  "title": "B1 (Thiamine)",
+                  "summary": "Essential for glucose metabolism and nerve, muscle, and heart function.",
+                  "metadata": {
+                    "Function": "Energy metabolism",
+                    "Daily Need": "1.2 mg"
+                  }
+                },
+                {
+                  "id": "B12",
+                  "title": "B12 (Cobalamin)",
+                  "summary": "Critical for red blood cell formation, neurological function, and DNA synthesis. Found primarily in animal products.",
+                  "metadata": {
+                    "Function": "Blood cell formation, nervous system",
+                    "Daily Need": "2.4 mcg"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sources",
+      "title": "Dietary Sources",
+      "summary": "Vitamins are obtained through a balanced diet including fruits, vegetables, whole grains, dairy products, and proteins. Some vitamins can be synthesized (like Vitamin D from sunlight) or produced by gut bacteria (like Vitamin K).",
+      "metadata": {
+        "Best Approach": "Varied, balanced diet",
+        "Natural vs Supplements": "Natural food sources preferred",
+        "Bioavailability": "Better from whole foods"
+      },
+      "children": [
+        {
+          "id": "plant-sources",
+          "title": "Plant-Based Sources",
+          "summary": "Fruits, vegetables, legumes, nuts, seeds, and whole grains provide most water-soluble vitamins and some fat-soluble ones (like Vitamin E and K).",
+          "metadata": {
+            "Rich in": "Vitamin C, K, E, Folate",
+            "Examples": "Leafy greens, berries, citrus"
+          }
+        },
+        {
+          "id": "animal-sources",
+          "title": "Animal-Based Sources",
+          "summary": "Meat, fish, eggs, and dairy products are excellent sources of Vitamin B12, D, A, and some B vitamins.",
+          "metadata": {
+            "Rich in": "Vitamin B12, D, A",
+            "Examples": "Fatty fish, eggs, dairy, meat"
+          }
+        }
+      ]
+    },
+    {
+      "id": "deficiency",
+      "title": "Deficiency Disorders",
+      "summary": "Insufficient vitamin intake can lead to various health conditions. Common deficiencies include Vitamin D (bone problems), B12 (anemia), and C (scurvy).",
+      "metadata": {
+        "Prevention": "Balanced diet, supplements if needed",
+        "Risk Groups": "Elderly, vegans, malabsorption disorders"
+      }
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: white;
+  overflow: hidden;
+}
+
+/* ========================================
+   HEADER & CONTROLS
+   ======================================== */
+.header {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #334155;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   APP LAYOUT
+   ======================================== */
+.app {
+  display: flex;
+  height: calc(100vh - 70px);
+}
+
+/* ========================================
+   MINDMAP CONTAINER
+   ======================================== */
+#mindmapContainer {
+  flex: 3;
+  padding: 40px;
+  overflow: auto;
+  position: relative;
+}
+
+#mindmap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100%;
+  padding: 20px;
+}
+
+/* ========================================
+   TREE STRUCTURE
+   ======================================== */
+.tree {
+  text-align: center;
+  position: relative;
+  padding: 20px;
+}
+
+.children {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  position: relative;
+}
+
+.children.hidden {
+  display: none;
+}
+
+/* ========================================
+   CONNECTOR LINES
+   ======================================== */
+.connector {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 50px;
+  background: linear-gradient(to bottom, #475569, transparent);
+}
+
+.tree:has(.children:not(.hidden)) .connector {
+  display: block;
+}
+
+.tree:has(.children.hidden) .connector {
+  display: none;
+}
+
+/* Horizontal connector for children */
+.children::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #475569;
+}
+
+/* Vertical connectors for each child */
+.children > .tree::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 50px;
+  background: #475569;
+}
+
+/* ========================================
+   NODES
+   ======================================== */
+.node {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  padding: 14px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border: 2px solid transparent;
+  display: inline-block;
+}
+
+.node:hover {
+  background: linear-gradient(135deg, #93c5fd, #60a5fa);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+}
+
+.node.active {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+  border-color: #fbbf24;
+  animation: pulse 2s infinite;
+}
+
+.node.related {
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.5);
+}
+
+.node.collapsed::after {
+  content: '▼';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.node.has-children:not(.collapsed)::after {
+  content: '▲';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+/* Node Levels */
+.node-root {
+  font-size: 18px;
+  padding: 18px 32px;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+.node-level-1 {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+.node-level-2 {
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  font-size: 14px;
+}
+
+.node-level-3 {
+  background: linear-gradient(135deg, #34d399, #10b981);
+  font-size: 13px;
+}
+
+/* ========================================
+   TOOLTIP
+   ======================================== */
+.tooltip {
+  position: fixed;
+  background: rgba(15, 23, 42, 0.98);
+  border: 2px solid #475569;
+  border-radius: 12px;
+  padding: 12px 16px;
+  max-width: 300px;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.2s ease;
+}
+
+.tooltip.hidden {
+  display: none;
+}
+
+.tooltip-content strong {
+  display: block;
+  color: #60a5fa;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.tooltip-content p {
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ========================================
+   SIDE PANEL
+   ======================================== */
+#sidePanel {
+  flex: 1;
+  min-width: 350px;
+  max-width: 450px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0;
+  border-left: 2px solid #334155;
+  overflow-y: auto;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.panel-header {
+  padding: 25px;
+  border-bottom: 2px solid #334155;
+  background: rgba(30, 41, 59, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.panel-header h2 {
+  font-size: 22px;
+  color: #60a5fa;
+  margin-bottom: 15px;
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.btn-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.5);
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+.panel-content {
+  padding: 25px;
+}
+
+.panel-section {
+  margin-bottom: 30px;
+}
+
+.panel-section h3 {
+  font-size: 16px;
+  color: #a78bfa;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.panel-section p {
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.metadata-item,
+.child-item {
+  background: rgba(30, 41, 59, 0.5);
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border-left: 3px solid #60a5fa;
+  color: #e2e8f0;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.metadata-item:hover,
+.child-item:hover {
+  background: rgba(30, 41, 59, 0.8);
+  border-left-color: #a78bfa;
+  transform: translateX(5px);
+}
+
+.metadata-item strong {
+  color: #60a5fa;
+  margin-right: 8px;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+  }
+  50% {
+    box-shadow: 0 6px 30px rgba(245, 158, 11, 0.9);
+  }
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #475569, #334155);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #64748b, #475569);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .app {
+    flex-direction: column;
+  }
+  
+  #sidePanel {
+    min-width: 100%;
+    max-width: 100%;
+    border-left: none;
+    border-top: 2px solid #334155;
+    max-height: 40vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+  
+  .node {
+    font-size: 13px;
+    padding: 10px 18px;
+  }
+  
+  .children {
+    gap: 20px;
+    flex-direction: column;
+  }
+}

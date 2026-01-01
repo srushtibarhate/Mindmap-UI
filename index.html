@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Mindmap UI - Assignment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header Controls -->
+  <div class="header">
+    <h1>🧠 Interactive Mindmap UI</h1>
+    <div class="controls">
+      <button id="fitViewBtn" class="btn">🔍 Fit to View</button>
+      <button id="resetBtn" class="btn">🔄 Reset View</button>
+      <button id="expandAllBtn" class="btn">➕ Expand All</button>
+      <button id="collapseAllBtn" class="btn">➖ Collapse All</button>
+      <button id="exportBtn" class="btn">💾 Export Data</button>
+    </div>
+  </div>
+
+  <div class="app">
+    <!-- Mindmap Container -->
+    <div id="mindmapContainer">
+      <div id="mindmap"></div>
+      
+      <!-- Hover Tooltip -->
+      <div id="tooltip" class="tooltip hidden">
+        <div class="tooltip-content"></div>
+      </div>
+    </div>
+
+    <!-- Side Panel -->
+    <div id="sidePanel">
+      <div class="panel-header">
+        <h2 id="panelTitle">Select a node</h2>
+        <button id="editBtn" class="btn-edit" style="display: none;">✏️ Edit</button>
+      </div>
+      
+      <div class="panel-content">
+        <div class="panel-section">
+          <h3>Summary</h3>
+          <p id="panelSummary">Click on any node to see details</p>
+        </div>
+        
+        <div class="panel-section" id="metadataSection" style="display: none;">
+          <h3>Metadata</h3>
+          <div id="panelMetadata"></div>
+        </div>
+        
+        <div class="panel-section" id="childrenSection" style="display: none;">
+          <h3>Children</h3>
+          <div id="panelChildren"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

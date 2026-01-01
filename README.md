@@ -5,6 +5,7 @@ A fully interactive, data-driven mindmap visualization built with vanilla JavaSc
 ![Mindmap UI](screenshots/full-view.png)
 
 ## 📋 Table of Contents
+
 - [Overview](#overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -25,7 +26,9 @@ A fully interactive, data-driven mindmap visualization built with vanilla JavaSc
 This interactive mindmap UI visualizes hierarchical data structures in an intuitive, visually appealing format. Built as a solution to a frontend development internship assignment, it showcases the ability to create complex, interactive user interfaces with clean, maintainable code.
 
 ### Problem Statement
+
 Build a seamless, interactive mindmap UI that:
+
 - Visualizes hierarchical data as an interactive graph
 - Supports rich user interactions (hover, click, edit, expand/collapse)
 - Is completely data-driven (changes to JSON automatically update the UI)
@@ -36,23 +39,28 @@ Build a seamless, interactive mindmap UI that:
 ## ✨ Features
 
 ### Core Interactive Features
+
 ✅ **Hover Interactions**
+
 - Dynamic tooltip displays with node summary
 - Smooth animations and visual feedback
 - Position-aware tooltip rendering
 
 ✅ **Click Interactions**
+
 - Node selection with visual highlighting
 - Related nodes (children) highlighted in different color
 - Expand/collapse functionality for nodes with children
 - Detailed information displayed in side panel
 
 ✅ **Edit Functionality**
+
 - Real-time node editing through UI prompts
 - Updates both title and summary
 - Changes reflected instantly in visualization and panel
 
 ✅ **View Controls**
+
 - **Fit to View**: Centers and resets viewport
 - **Reset View**: Reloads original data and clears selections
 - **Expand All**: Opens all collapsed nodes
@@ -60,7 +68,9 @@ Build a seamless, interactive mindmap UI that:
 - **Export Data**: Downloads current mindmap as JSON
 
 ### Advanced Features
+
 🎨 **Visual Design**
+
 - Gradient backgrounds and modern color schemes
 - Depth-based node styling (different colors per level)
 - Smooth transitions and animations
@@ -68,10 +78,12 @@ Build a seamless, interactive mindmap UI that:
 - Responsive design for various screen sizes
 
 🎹 **Keyboard Shortcuts**
+
 - `ESC`: Deselect current node
 - `E`: Edit selected node
 
 📊 **Side Panel Information**
+
 - Node title and detailed summary
 - Metadata display (category, sources, functions, etc.)
 - Children nodes list
@@ -82,12 +94,15 @@ Build a seamless, interactive mindmap UI that:
 ## 🛠 Technologies Used
 
 ### Core Technologies
+
 - **HTML5**: Semantic structure and markup
 - **CSS3**: Advanced styling, animations, gradients, flexbox
 - **JavaScript (ES6+)**: Interactive functionality, DOM manipulation, data handling
 
 ### Why Vanilla JavaScript?
+
 I chose vanilla JavaScript over frameworks for several reasons:
+
 1. **No Dependencies**: Lightweight, fast loading, no build process
 2. **Direct Control**: Full control over DOM manipulation and performance
 3. **Learning Demonstration**: Shows fundamental understanding of web technologies
@@ -95,6 +110,7 @@ I chose vanilla JavaScript over frameworks for several reasons:
 5. **Portability**: Runs anywhere without compilation or dependencies
 
 ### Key JavaScript Features Used
+
 - ES6 Arrow Functions
 - Template Literals
 - Fetch API for JSON loading
@@ -182,6 +198,7 @@ data.json → fetch() → mindmapData
 #### Example: Adding a New Node
 
 **Before:**
+
 ```json
 {
   "id": "sources",
@@ -191,6 +208,7 @@ data.json → fetch() → mindmapData
 ```
 
 **After:**
+
 ```json
 {
   "id": "sources",
@@ -220,12 +238,15 @@ data.json → fetch() → mindmapData
     "customField": "customValue"
   },
   "children": [
-    { /* nested node structure */ }
+    {
+      /* nested node structure */
+    }
   ]
 }
 ```
 
 **Key Points:**
+
 - `id`: Unique identifier for each node
 - `title`: Displayed text on the node
 - `summary`: Shown in tooltip and side panel
@@ -237,10 +258,12 @@ data.json → fetch() → mindmapData
 ## 🚀 Setup & Installation
 
 ### Prerequisites
+
 - A modern web browser (Chrome, Firefox, Safari, Edge)
 - A local web server (optional but recommended)
 
 ### Option 1: Simple File Opening
+
 ```bash
 # Clone or download the repository
 cd mindmap-ui
@@ -252,6 +275,7 @@ cd mindmap-ui
 ### Option 2: Using Local Server (Recommended)
 
 **Python:**
+
 ```bash
 # Python 3
 python -m http.server 8000
@@ -263,6 +287,7 @@ python -m SimpleHTTPServer 8000
 ```
 
 **Node.js (http-server):**
+
 ```bash
 npx http-server -p 8000
 
@@ -270,6 +295,7 @@ npx http-server -p 8000
 ```
 
 **VS Code Live Server:**
+
 1. Install "Live Server" extension
 2. Right-click `index.html`
 3. Select "Open with Live Server"
@@ -281,26 +307,31 @@ npx http-server -p 8000
 ### Basic Interaction
 
 1. **Viewing the Mindmap**
+
    - The mindmap loads automatically on page load
    - Hierarchical structure is displayed with connecting lines
 
 2. **Hovering Over Nodes**
+
    - Move your mouse over any node
    - A tooltip appears showing the node's title and summary
    - Tooltip follows your cursor
 
 3. **Selecting Nodes**
+
    - Click any node to select it
    - Selected node turns orange with pulse animation
    - Related child nodes turn purple
    - Detailed information appears in the side panel
 
 4. **Expanding/Collapsing**
+
    - Click a node with children to toggle visibility
    - Look for ▼ (collapsed) or ▲ (expanded) indicators
    - Use "Expand All" / "Collapse All" buttons for bulk operations
 
 5. **Editing Nodes**
+
    - Select a node
    - Click the "✏️ Edit" button in the side panel
    - Update the title and/or summary in the prompts
@@ -313,10 +344,10 @@ npx http-server -p 8000
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `ESC` | Deselect current node |
-| `E` | Edit selected node (if any) |
+| Key   | Action                      |
+| ----- | --------------------------- |
+| `ESC` | Deselect current node       |
+| `E`   | Edit selected node (if any) |
 
 ---
 
@@ -351,16 +382,21 @@ mindmap-ui/
 **Demonstration:**
 
 1. **Change a title** in `data.json`:
+
    ```json
    "title": "Vitamins in Human Body"
    ```
+
    to
+
    ```json
    "title": "Essential Vitamins"
    ```
+
    → Title updates in UI
 
 2. **Add a new node**:
+
    ```json
    "children": [
      {
@@ -370,17 +406,19 @@ mindmap-ui/
      }
    ]
    ```
+
    → New node appears with all interactions
 
 3. **Change hierarchy**:
    - Move nodes between parents
    - Add/remove children
    - Adjust depth levels
-   → Structure updates automatically
+     → Structure updates automatically
 
 ### ✅ No Hardcoded Content
 
 Check `script.js` - you'll find:
+
 - ❌ No hardcoded node names
 - ❌ No fixed structure assumptions
 - ✅ Generic recursive rendering
@@ -392,22 +430,27 @@ Check `script.js` - you'll find:
 ## 📸 Screenshots
 
 ### Full Mindmap View
+
 ![Full View](screenshots/full-view.png)
-*Complete hierarchical visualization with all nodes visible*
+_Complete hierarchical visualization with all nodes visible_
 
 ### Hover Interaction
+
 ![Hover](screenshots/hover-interaction.png)
-*Tooltip displaying node information on hover*
+_Tooltip displaying node information on hover_
 
 ### Node Selection & Side Panel
+
 ![Selected](screenshots/node-selected.png)
-*Selected node with detailed information in side panel*
+_Selected node with detailed information in side panel_
 
 ### Expanded & Collapsed States
+
 ![Expand/Collapse](screenshots/expanded-collapsed.png)
-*Demonstration of expand/collapse functionality*
+_Demonstration of expand/collapse functionality_
 
 > **Note**: Screenshots are stored in the `screenshots/` folder. To capture your own:
+>
 > 1. Open the application
 > 2. Use browser screenshot tools or press `Win + Shift + S` (Windows) / `Cmd + Shift + 4` (Mac)
 > 3. Save to `screenshots/` folder
@@ -417,6 +460,7 @@ Check `script.js` - you'll find:
 ## 🎥 Demo Video
 
 A comprehensive demo video is available showing:
+
 - ✅ Full mindmap navigation
 - ✅ Hover interactions with tooltips
 - ✅ Node selection and highlighting
@@ -427,17 +471,19 @@ A comprehensive demo video is available showing:
 
 **Video Link**: [Insert your video link here]
 
-*(Upload to Google Drive, YouTube, Loom, or similar and add the link)*
+_(Upload to Google Drive, YouTube, Loom, or similar and add the link)_
 
 ### Recording Instructions
 
 **Recommended Tools:**
+
 - **OBS Studio** (Free, cross-platform)
 - **Loom** (Easy browser recording)
 - **Windows Game Bar** (`Win + G`)
 - **macOS Screen Recording** (`Cmd + Shift + 5`)
 
 **What to Show:**
+
 1. Opening the application (2-3 seconds)
 2. Hovering over multiple nodes (5-10 seconds)
 3. Clicking and selecting nodes (10 seconds)
@@ -454,18 +500,21 @@ A comprehensive demo video is available showing:
 ## 🔍 Evaluation Criteria Met
 
 ### ✅ Correctness
+
 - All required features implemented
 - Hover, click, edit, expand/collapse working
 - Side panel and tooltips functional
 - View controls operational
 
 ### ✅ Data-Driven Design
+
 - 100% driven by JSON
 - No hardcoded nodes or structure
 - Clean separation of data and UI logic
 - Easy to modify data without touching code
 
 ### ✅ UI/UX Quality
+
 - Modern, clean design
 - Smooth animations and transitions
 - Intuitive interactions
@@ -473,6 +522,7 @@ A comprehensive demo video is available showing:
 - Responsive layout
 
 ### ✅ Code Quality
+
 - Well-organized structure
 - Clear comments and documentation
 - Modular functions
@@ -480,6 +530,7 @@ A comprehensive demo video is available showing:
 - Readable and maintainable
 
 ### ✅ Problem-Solving
+
 - Recursive rendering for arbitrary depth
 - Efficient event handling
 - Thoughtful state management
@@ -490,11 +541,13 @@ A comprehensive demo video is available showing:
 ## 🎁 Bonus Features Implemented
 
 ### ✅ Export Functionality
+
 - Download current mindmap data as JSON
 - Preserves all edits made through the UI
 - One-click export via "Export Data" button
 
 ### Additional Bonuses
+
 - 🎨 Advanced visual design with gradients and animations
 - ⌨️ Keyboard shortcuts for power users
 - 📱 Responsive design (works on tablets/phones)
@@ -560,12 +613,14 @@ Potential improvements for future iterations:
 ## 📝 Assumptions & Design Decisions
 
 ### Assumptions Made
+
 1. **JSON Structure**: Each node has `id`, `title`, and `summary` at minimum
 2. **Browser Support**: Modern browsers with ES6+ support
 3. **Data Size**: Mindmap fits reasonably on screen (no extreme zooming needed)
 4. **Single User**: No concurrent editing requirements
 
 ### Design Decisions
+
 1. **Vanilla JS**: Chose simplicity and no build process over framework overhead
 2. **Prompt-based Editing**: Simple UI for editing rather than inline editing
 3. **Recursive Rendering**: Handles arbitrary depth without complexity
@@ -573,6 +628,7 @@ Potential improvements for future iterations:
 5. **Color Coding by Depth**: Visual hierarchy enhancement
 
 ### Intentionally Skipped
+
 - **Backend Integration**: Assignment focused on frontend only
 - **Advanced Canvas Rendering**: HTML/CSS sufficient for requirements
 - **Complex State Management**: Vanilla approach adequate for this scope
@@ -582,6 +638,7 @@ Potential improvements for future iterations:
 ## 👨‍💻 Development Notes
 
 ### Time Breakdown
+
 - Planning & Architecture: 30 minutes
 - HTML Structure: 20 minutes
 - JavaScript Logic: 90 minutes
@@ -593,12 +650,14 @@ Potential improvements for future iterations:
 **Total**: ~5.5 hours
 
 ### Challenges Faced
+
 1. **Recursive Rendering**: Ensuring proper depth tracking and styling
 2. **Connector Lines**: CSS-based lines for hierarchical relationships
 3. **Tooltip Positioning**: Making it follow cursor smoothly
 4. **State Management**: Tracking selected nodes without framework
 
 ### Solutions Implemented
+
 1. Depth parameter passed through recursion
 2. CSS pseudo-elements for connectors
 3. Mouse move events with position tracking
@@ -609,6 +668,7 @@ Potential improvements for future iterations:
 ## 📞 Contact & Submission
 
 **Submission Includes:**
+
 - ✅ Source code (HTML, CSS, JS)
 - ✅ Data file (data.json)
 - ✅ README (this document)
@@ -635,6 +695,7 @@ This project is created as an assignment submission for a Frontend Development I
 
 **Made with ❤️ for Frontend Development Internship Assignment**
 
-*Good luck reviewing! 🚀*
-#   M i n d m a p - U I  
+_Good luck reviewing! 🚀_
+#   M i n d m a p - U I 
+ 
  
